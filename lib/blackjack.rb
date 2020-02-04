@@ -20,26 +20,46 @@ def get_user_input
 end
 
 def end_game(total)
-  binding.pry
+  #binding.pry
   puts "Sorry, you hit #{total}. Thanks for playing!"
 end
 
 def initial_round
-  # code #initial_round here
+  total = deal_card()+deal_card()
+  display_card_total(total)
+  return total
 end
-
-def hit?
-  # code hit? here
-end
-
 def invalid_command
-  # code invalid_command here
+  puts 'Please enter a valid command'
 end
+def hit? (total)
+while true
+  prompt_user()
+a = get_user_input()
+if a == "h"
+  total = total + deal_card()
+  return total
+elsif a == "s"
+  return total
+else
+ invalid_command
+end
+end
+end
+
+
 
 #####################################################
 # get every test to pass before coding runner below #
 #####################################################
 
 def runner
-  # code runner here
+  welcome()
+  total = initial_round()
+  until total > 21 do
+    total = hit?(total)
+    display_card_total(total)
+  end
+end_game(total)
+
 end
