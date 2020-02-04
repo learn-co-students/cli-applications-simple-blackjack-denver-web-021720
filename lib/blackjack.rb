@@ -1,25 +1,27 @@
+require 'pry'
 def welcome
-  # code #welcome here
+  puts "Welcome to the Blackjack Table"
 end
 
 def deal_card
-  # code #deal_card here
+  return rand{10}
 end
 
-def display_card_total
-  # code #display_card_total here
+def display_card_total(total)
+  puts "Your cards add up to #{total}"
 end
 
 def prompt_user
-  # code #prompt_user here
+  puts "Type 'h' to hit or 's' to stay"# code #prompt_user here
 end
 
 def get_user_input
-  # code #get_user_input here
+  return gets.chomp
 end
 
-def end_game
-  # code #end_game here
+def end_game(total)
+  binding.pry
+  puts "Sorry, you hit #{total}. Thanks for playing!"
 end
 
 def initial_round
@@ -41,4 +43,3 @@ end
 def runner
   # code runner here
 end
-    
